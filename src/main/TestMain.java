@@ -11,13 +11,19 @@ import org.json.JSONArray;
  */
 public class TestMain {
 	public static void main(String[] args) throws IOException {
-		String name = args[0];
+		if (args.length != 1) {
+			throw new IllegalArgumentException("Please input the city name to search");
+		}
+		String cityName = args[0];
 		String baseAPI = "http://api.goeuro.com/api/v2/position/suggest/en/";
-		String fullAPICall = baseAPI + name;
-		System.out.println(fullAPICall);
+		String fullAPICall = baseAPI + cityName;
 
+		System.out.println("Querying GoEuro API");
 		JSONArray json = JsonReader.getData(fullAPICall);
-		CreateCsv.makeCsv(json);
 
+		System.out.println("Building .csv");
+		CreateCsv.makeCsv(json, cityName);
+
+		System.out.println("Finished");
 	}
 }
