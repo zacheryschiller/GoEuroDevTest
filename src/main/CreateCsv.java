@@ -8,7 +8,7 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 /**
- * Takes the JSOn array, extracts the required data and creates a csv with this
+ * Takes the JSON array, extracts the required data and creates a csv with this
  * data.
  * 
  */
